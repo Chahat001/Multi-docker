@@ -11,14 +11,14 @@ script:
 
 
 after_success:
- - docker build -t chahat/multi-client ./client
- - docker build -t chahat/multi-nginx ./nginix
- - docker build -t chahat/multi-server ./server
- - docker build -t chahat/multi-worker ./worker
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-client ./client
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-nginx ./nginix
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-server ./server
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-worker ./worker
 
  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
- - docker push chahat/multi-client
- - docker push chahat/multi-nginx 
- - docker push chahat/multi-server
- - docker push chahat/multi-worker
+ - docker push freakydeveloper007/my-fibnocci-app:multi-client
+ - docker push freakydeveloper007/my-fibnocci-app:multi-nginx 
+ - docker push freakydeveloper007/my-fibnocci-app:multi-server
+ - docker push freakydeveloper007/my-fibnocci-app:multi-worker
 
