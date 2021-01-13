@@ -1,0 +1,12 @@
+
+after_success:
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-client ./client
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-nginx ./nginix
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-server ./server
+ - docker build -t freakydeveloper007/my-fibnocci-app:multi-worker ./worker
+
+ - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+ - docker push freakydeveloper007/my-fibnocci-app:multi-client
+ - docker push freakydeveloper007/my-fibnocci-app:multi-nginx 
+ - docker push freakydeveloper007/my-fibnocci-app:multi-server
+ - docker push freakydeveloper007/my-fibnocci-app:multi-worker
