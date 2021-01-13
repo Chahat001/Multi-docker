@@ -1,4 +1,11 @@
 
+before_install:
+ - docker build -t chahat/react-test -f ./client/Dockerfile.dev ./client
+
+
+script:
+ - docker run -e CI=true chahat/react-test npm test
+ 
 after_success:
  - docker build -t freakydeveloper007/my-fibnocci-app:multi-client ./client
  - docker build -t freakydeveloper007/my-fibnocci-app:multi-nginx ./nginix
